@@ -11,10 +11,12 @@ json.schedule_speakers do
       json.title link.title
     end
     json.events person.public_and_accepted_events_as_speaker_in(@conference) do |event|
-      json.id event.id
-      json.title event.title
-      json.logo event.logo_path
-      json.type event.event_type
+      if event.state == 'confirmed'
+        json.id event.id
+        json.type event.event_type
+        json.title event.title
+        json.logo event.logo_path
+      end
     end
   end
 end
