@@ -3,6 +3,7 @@ json.conference_events do
   json.events @events do |event|
     json.id event.id
     json.title event.title
+    json.subtitle event.subtitle
     json.logo event.logo_path
     json.type event.event_type
     if event.start_time and event.room
